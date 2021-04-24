@@ -29,7 +29,7 @@ const word = "magnolia";
 console.log(word);
 
 const progress = function () {
-    wordInProgress.innerHTML = "●";
+    wordInProgress.innerText = "●";
 }
 
 progress(word);
