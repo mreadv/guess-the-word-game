@@ -37,5 +37,7 @@ progress(word);
 
 guessButton.addEventListener("click", function (e) {
     e.preventDefault();
+    const guess = inputGuess.value;
+    console.log(guess); 
 
 })
