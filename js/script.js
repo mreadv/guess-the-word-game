@@ -23,21 +23,28 @@ const message = document.querySelector(".message");
 //the hidden button that will appear prompting the player to play again
 const playAgain = document.querySelector(".play-again");
 
+
 //Magnolia is starting word to test out the game until you fetch words from a hosted file in a later step
 const word = "magnolia";
 
 console.log(word);
 
-const progress = function () {
-    wordInProgress.innerText = "●";
+//Update the paragraph's innerText for the "words-in-progress" element
+const progress = function (word) {
+    const placeHolders = [];
+    for (const letter of word) {
+        console.log(letter);
+        placeHolders.push("●")
+    }
+    wordInProgress.innerText = placeHolders.join("");
 }
-
 progress(word);
 
-
+// Add event listener for the button
 guessButton.addEventListener("click", function (e) {
     e.preventDefault();
     const guess = inputGuess.value;
     console.log(guess); 
+    inputGuess.value = "";
 
-})
+});
