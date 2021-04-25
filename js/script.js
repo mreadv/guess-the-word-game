@@ -27,7 +27,8 @@ const playAgain = document.querySelector(".play-again");
 //Magnolia is starting word to test out the game until you fetch words from a hosted file in a later step
 const word = "magnolia";
 
-console.log(word);
+// Array will contain the letters the player guesses.
+const guessedLetters = [];
 
 //Update the paragraph's innerText for the "words-in-progress" element
 const progress = function (word) {
