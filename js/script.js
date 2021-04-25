@@ -38,7 +38,7 @@ const progress = function (word) {
         placeHolders.push("●")
     }
     wordInProgress.innerText = placeHolders.join("");
-}
+};
 progress(word);
 
 // Add event listener for the button
@@ -49,6 +49,10 @@ guessButton.addEventListener("click", function (e) {
     const guess = inputGuess.value;
     const rightGuess = validateInput(guess);
 //  console.log(rightGuess);
+    if (rightGuess) {
+        // We have a letter so guess!
+        makeGuess(guess);
+    }
     inputGuess.value = "";
     
 
@@ -77,6 +81,12 @@ const validateInput = function (input) {
     const makeGuess = function (guess) {
         guess = guess.toUpperCase();
         console.log(guessedLetters);
+        if (guessedLetters.includes(guess)) {
+            message.innerText = "You've already tried this letter! Pick a new one.";
+        } else { 
+            guessedLetters.push(guess);
+            console.log(guessedLetters);
+        }
     };
 
 
