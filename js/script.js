@@ -43,8 +43,36 @@ progress(word);
 // Add event listener for the button
 guessButton.addEventListener("click", function (e) {
     e.preventDefault();
+    // Empty the text of the message element.
+    message.innerText = "";
     const guess = inputGuess.value;
-    console.log(guess); 
+    const rightGuess = validateInput(guess);
+    console.log(rightGuess);
     inputGuess.value = "";
+    
 
 });
+
+// Validate player's input.
+const validateInput = function (input) {
+// Ensure the player inputs a letter.    
+    const acceptedLetter = /[a-zA-Z]/;
+    if (input.length === 0) {
+        //Did you leave input empty?
+        message.innerText = "Please type one letter.";
+    } else if (input.length > 1) {
+        // Did you type more than one letter?
+        message.innerText = "Please only enter one letter.";
+    } else if (!input.match(acceptedLetter)) {
+        // Please only type a valid letter (symbols numbers not accepted).
+        message.innerText = "Please only type a letter from A to Z. No symbols or numbers.";
+    } else {
+        // They entered a letter!
+        return input;
+    }
+    };
+
+// Validate input in the button event handler.
+
+
+
