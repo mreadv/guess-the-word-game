@@ -48,7 +48,7 @@ guessButton.addEventListener("click", function (e) {
     message.innerText = "";
     const guess = inputGuess.value;
     const rightGuess = validateInput(guess);
-    console.log(rightGuess);
+//  console.log(rightGuess);
     inputGuess.value = "";
     
 
@@ -72,8 +72,11 @@ const validateInput = function (input) {
         return input;
     }
     };
-
-// Validate input in the button event handler.
-
+    
+    
+    const makeGuess = function (guess) {
+        guess = guess.toUpperCase();
+        console.log(guessedLetters);
+    };
 
 
