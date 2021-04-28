@@ -105,5 +105,24 @@ const validateInput = function (input) {
     const updateWordInProgress = function (guessedLetters) {
         const wordUpper = word.toUpperCase();
         const wordArray = wordUpper.split("");
+        const revealWord = [];
         console.log(wordArray);
+        for (const letter of wordArray) {
+            if (guessedLetters.includes(letter)) {
+                revealWord.push(letter.toUpperCase());
+            } else {
+                revealWord.push("●");
+            }
+        }
+
+        wordInProgress.innerText = revealWord.join("");
+        checkCorrectGuess();
     };
+
+    const checkCorrectGuess = function () {
+        if (word.toUpperCase() === wordInProgress.innerText) {
+            message.classList.add("win");
+            message.innerHTML = `<p class="highlight">You guessed the correct word! Congrats!</p>`;
+          }
+        };
+        
