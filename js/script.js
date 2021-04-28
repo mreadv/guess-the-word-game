@@ -39,6 +39,7 @@ const progress = function (word) {
     }
     wordInProgress.innerText = placeHolders.join("");
 };
+
 progress(word);
 
 // Add event listener for the button
@@ -86,7 +87,23 @@ const validateInput = function (input) {
         } else { 
             guessedLetters.push(guess);
             console.log(guessedLetters);
+            updateLetters();
         }
     };
 
 
+    const updateLetters = function () {
+        guesses.innerHTML = "";
+        for (const letter of guessedLetters) {
+            const li = document.createElement("li");
+            li.innerText = letter;
+        guesses.append(li);
+        }
+    };
+
+    // This function will replace the circle symbols with the correct letters guessed.
+    const updateWordInProgress = function (guessedLetters) {
+        const wordUpper = word.toUpperCase();
+        const wordArray = wordUpper.split("");
+        console.log(wordArray);
+    };
